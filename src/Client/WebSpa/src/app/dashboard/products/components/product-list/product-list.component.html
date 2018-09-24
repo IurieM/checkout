@@ -1,0 +1,32 @@
+<div class='row'>
+    <div *ngFor="let product of products$ | async" class="col-lg-4 form-group">
+        <mat-card>
+            <mat-card-header>
+                <mat-card-title>
+                    <b>{{product.name}}</b>
+                </mat-card-title>
+            </mat-card-header>
+            <mat-card-content>
+                <div class="row">
+                    <div class="col-lg-5">
+                        <b>Description</b>
+                    </div>
+                    <div class="col-lg-7">
+                        {{product.description}}
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-lg-5">
+                        <b> Price</b>
+                    </div>
+                    <div class="col-lg-7">
+                        {{product.price}}
+                    </div>
+                </div>
+            </mat-card-content>
+            <mat-card-actions>
+                <button mat-button (click)="addToBasket(product)">Add to basket</button>
+            </mat-card-actions>
+        </mat-card>
+    </div>
+</div>

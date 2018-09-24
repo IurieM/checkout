@@ -1,0 +1,38 @@
+<div>
+    <h3>
+        {{pageTitle}}
+    </h3>
+    <table>
+        <tr>
+            <th>Name</th>
+            <th>Price</th>
+            <th>Units</th>
+            <th></th>
+        </tr>
+        <tr *ngFor="let item of basket.basketItems">
+            <td width="40%">
+                {{item.name}}
+            </td>
+            <td width="10%">
+                {{item.price}}
+            </td>
+            <td width="40%">
+                {{item.units}} units
+                <button mat-icon-button (click)="incrementUnits(item)">
+                    <mat-icon>arrow_drop_up</mat-icon>
+                </button>
+                <button mat-icon-button (click)="decrementUnits(item)">
+                    <mat-icon>arrow_drop_down</mat-icon>
+                </button>
+            </td>
+            <td width="10%">
+                <button mat-icon-button (click)="deleteBasketItem(item)">
+                    <mat-icon>delete</mat-icon>
+                </button>
+            </td>
+        </tr>
+    </table>
+    <button mat-icon-button (click)="clearBasket()">
+        <mat-icon>clear</mat-icon>Clear Basket
+    </button>
+</div>

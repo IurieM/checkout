@@ -1,0 +1,26 @@
+services: 
+  identity.api: 
+    build: 
+      context: ./src/Apis/Identity/Identity.Api
+      dockerfile: Dockerfile
+    image: identity.api
+  basket.api: 
+    build: 
+      context: ./src/Apis/Basket/Basket.Api
+      dockerfile: Dockerfile
+    image: basket.api
+    depends_on:
+      - catalog.api
+  webspa: 
+    build: 
+      context: ./src/Client/WebSpa
+      dockerfile: Dockerfile
+    image: webspa
+  catalog.api:
+    image: catalog.api
+    build:
+      context: ./src/Apis/Catalog/Catalog.Api
+      dockerfile: Dockerfile
+    depends_on:
+      - identity.api
+version: "3"
