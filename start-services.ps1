@@ -22,5 +22,6 @@ $services | % {
 	}
 	$params=@("/C"; $cdProjectDir; $command; )	
 	Start-Process -Verb runas "cmd.exe" $params;
+	Start-Sleep 3
 }
 
